@@ -1,0 +1,36 @@
+name: Electron Build and Release
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-and-release:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-latest, macos-latest]
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build Application
+        run: npm run build
+
+      - name: Electron Build
+        run: |
+          if [[ ${{ matrix.os }} == 'windows-latest' ]]; then
+            npm run build:win
+          elif [[ ${{ matrix.os }} == 'macos-latest' ]]; then
+            npm run build:mac
+          fi

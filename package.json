@@ -45,5 +45,29 @@
     "react-dom": "^19.1.0",
     "typescript": "^5.8.3",
     "vite": "^6.2.6"
+  },
+  "build": {
+    "appId": "com.electron.app",
+    "productName": "录屏大帝",
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "lizuncong",
+        "repo": "https://github.com/lizuncong/screen-record"
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "mac": {
+      "target": "dmg"
+    }
   }
 }
