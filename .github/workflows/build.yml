@@ -55,4 +55,4 @@ jobs:
             dist/*.yml
             dist/*.blockmap
         env:
-          CICD_TOKEN: ${{ secrets.CICD_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.CICD_TOKEN }}
