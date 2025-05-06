@@ -27,6 +27,11 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
+      - name: Check Environment Variables
+        run: echo "GH_TOKEN=${{ secrets.GH_TOKEN }}"
+        shell: bash
+
+
       - name: build-linux
         if: matrix.os == 'ubuntu-latest'
         run: npm run build:linux
@@ -54,6 +59,5 @@ jobs:
             dist/*.tar.gz
             dist/*.yml
             dist/*.blockmap
-        run: echo "GH_TOKEN=${{ secrets.GH_TOKEN }}"
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
