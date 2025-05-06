@@ -56,3 +56,4 @@ jobs:
             dist/*.blockmap
         env:
           CICD_TOKEN: ${{ secrets.CICD_TOKEN }}
+          GH_TOKEN: ${{ secrets.CICD_TOKEN }}
