@@ -38,7 +38,11 @@ jobs:
       - name: build-win
         if: matrix.os == 'windows-latest'
         run: npm run build:win
-
+      - name: Check Environment Variables
+        run: echo "GH_TOKEN=${{ secrets.GH_TOKEN }}"
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
       - name: release
         uses: softprops/action-gh-release@v1
         with:
@@ -55,4 +59,4 @@ jobs:
             dist/*.yml
             dist/*.blockmap
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
