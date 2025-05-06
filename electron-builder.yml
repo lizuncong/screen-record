@@ -1,5 +1,5 @@
 publish:
   provider: github
-  owner: 'your-username' # 替换为你的 GitHub 账户名
-  repo: 'your-repo' # 替换为你的仓库名
+  owner: lizuncong # 替换为你的 GitHub 账户名
+  repo: https://github.com/lizuncong/screen-record # 替换为你的仓库名
   releaseType: 'release'
