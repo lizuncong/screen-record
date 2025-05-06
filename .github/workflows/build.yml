@@ -12,11 +12,11 @@ jobs:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@master
       with:
-        node-version: 14
+        node-version: 20
     - name: install dependencies
       run: npm install
     - name: build
-      run: npm run make
+      run: npm run build:linux
 
   build_on_mac:
     runs-on: macos-latest
@@ -24,11 +24,11 @@ jobs:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@master
       with:
-        node-version: 14
+        node-version: 20
     - name: install dependencies
       run: npm install
     - name: build
-      run: npm run make
+      run: npm run build:mac
 
   build_on_win:
     runs-on: windows-latest
@@ -36,8 +36,8 @@ jobs:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@master
       with:
-        node-version: 14
+        node-version: 20
     - name: install dependencies
       run: npm install
     - name: build
-      run: npm run make
+      run: npm run build:win
